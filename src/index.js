@@ -14,6 +14,5 @@ const base = require('@high-standards-js/base');
         '.prettierrc',
         base.getTemplate(__dirname, '.highstandards/.prettierrc')
     );
-    
     base.writeInitiatingProjectPackageJson(packageJsonOfConfig);
 })()
