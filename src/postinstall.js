@@ -9,10 +9,17 @@ const base = require('@high-standards-js/base');
     packageJsonOfConfig = await base.addDevDependency(packageJsonOfConfig, 'prettier');
 
     packageJsonOfConfig.husky.hooks['pre-commit'] = 'lint-staged';
-    
+    if (!packageJsonOfConfig['lint-staged']) {
+        packageJsonOfConfig['lint-staged'] = {
+            '*.{ts,js,json,css,yaml}': [
+                'prettier --write',
+                'git add'
+            ]
+        }
+    }
     base.writeFile(
         '.prettierrc',
-        base.getTemplate(__dirname, '.highstandards/.prettierrc')
+        base.getTemplate(__dirname, '.prettierrc')
     );
     base.writeInitiatingProjectPackageJson(packageJsonOfConfig);
 })()
