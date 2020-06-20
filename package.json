@@ -9,21 +9,32 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@high-standards-js/base": "^1.7.4",
-    "@high-standards-js/husky": "^1.1.2"
+    "@high-standards-js/base": "^1.7.7",
+    "@high-standards-js/husky": "^1.1.3"
   },
   "devDependencies": {
-    "husky": "4.2.5"
+    "husky": "4.2.5",
+    "commitlint": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "lint-staged": "10.2.11",
+    "prettier": "2.0.5"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
   },
   "engines": {
     "node": ">=12.16.1"
+  },
+  "lint-staged": {
+    "*.{ts,js,json,css,yaml}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
