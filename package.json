@@ -12,7 +12,7 @@
     "@high-standards-js/husky": "^1.1.6"
   },
   "devDependencies": {
-    "husky": "4.2.5",
+    "husky": "4.3.8",
     "commitlint": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "lint-staged": "10.2.11",
